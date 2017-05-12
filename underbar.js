@@ -11,12 +11,13 @@ const last = function(arr, n=1){
 }
 
 const indexOf = function(arr, target, fromIndex=0){
-  for(let index = fromIndex; index <= arr.length; index++){
-    if(arr[index] === target) {
-      return index;
+  let result = -1;
+  each(arr, (item, index) => {
+    if(index >= fromIndex && result === -1 && item === target){
+      result = index;
     }
-  }
-  return -1;
+  });
+  return result;
 }
 
 const isArrayLike = function(obj){
